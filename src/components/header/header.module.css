@@ -1,0 +1,60 @@
+.header {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    border-bottom: 4px solid rgb(144, 144, 144);
+    background-color: rgb(227, 225, 225);
+    position: relative;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(176, 15, 176);
+}
+
+.navLinks {
+    margin-left: 30px;
+}
+
+.navLink {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 12px;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn {
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 21px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.btn:hover {
+    background-color: darkblue;
+}
+
+.navLink:hover {
+    color: darkblue;
+}
