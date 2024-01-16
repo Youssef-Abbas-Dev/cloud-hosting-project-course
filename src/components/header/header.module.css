@@ -23,6 +23,14 @@
     color: rgb(176, 15, 176);
 }
 
+.menu {
+    font-size: 40px;
+    font-weight: bold;
+    color: #202121;
+    cursor: pointer;
+    display: none;
+}
+
 .navLinks {
     margin-left: 30px;
 }
@@ -57,4 +65,41 @@
 
 .navLink:hover {
     color: darkblue;
+}
+
+@media (max-width: 1080px) {
+    .logo {
+        display: none;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .navLinksWrapper {
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        background-color: inherit;
+        transition: all .5s ease-in;
+        z-index: 100;
+        background-color: rgb(227, 225, 225);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    .navLinks {
+        padding-left: 30px;
+        padding-bottom: 10px;
+        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .navLink {
+        padding: 0;
+        margin: 12px 0;
+    }
 }
