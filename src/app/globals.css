@@ -15,3 +15,7 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
+
+.fix-height {
+  min-height: calc(100vh - 150px);
+}

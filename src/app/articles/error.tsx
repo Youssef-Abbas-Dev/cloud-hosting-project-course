@@ -8,7 +8,7 @@ interface ErrorPageProps {
 
 const ArticlesErrorPage = ({ error, reset }: ErrorPageProps) => {
     return (
-        <div className="pt-7 text-center">
+        <div className="fix-height pt-7 text-center">
             <p className="mb-2">This is custom error page for articles route/page</p>
             <div className="text-3xl text-red-600 font-semibold">
                 Something went wrong
