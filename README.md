@@ -1,4 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# cloud-hosting-project
+Cloud Hosting Project created by Next.JS for educational purpose
+
+<img src="./public/course-nextjs.png">
+
+# Usage
+- Install Postgresql DB on your local machine or use Postgresql from remote server
+
+## Environment Variables
+Create `.env` file in the root folder and add the following
+```
+DATABASE_URL= your database uri
+JWT_SECRET=your JWT secret key
+NODE_ENV=development
+```
+
+## Install Dependencies
+```
+npm install
+```
+
+
 
 ## Getting Started
 
