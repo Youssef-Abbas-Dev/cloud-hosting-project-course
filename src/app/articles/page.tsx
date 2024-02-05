@@ -5,6 +5,10 @@ import { Article } from '@/utils/types';
 import type { Metadata } from 'next';
 
 const ArticlesPage = async () => {
+
+  // delay 3s
+  //await new Promise((resolve) => setTimeout(resolve, 3000));
+
   const response = await fetch("https://jsonplaceholder.typicode.com/posts");
   
   if(!response.ok) {
