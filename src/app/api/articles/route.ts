@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { articles } from '@/utils/data';
 import { Article } from '@/utils/types';
-import { createArticleSchema } from '@/utils/validationShemas';
+import { createArticleSchema } from '@/utils/validationSchemas';
 import { CreateArticleDto } from '@/utils/dtos';
 
 /**
