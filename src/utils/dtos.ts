@@ -5,5 +5,5 @@ export interface CreateArticleDto {
 
 export interface UpdateArticleDto {
     title?: string;
-    body?: string;
+    description?: string;
 }
