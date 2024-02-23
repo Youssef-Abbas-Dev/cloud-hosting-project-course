@@ -41,11 +41,11 @@ export async function PUT(request: NextRequest, { params }: Props) {
         const article = await prisma.article.findUnique({
             where: { id: parseInt(params.id) }
         });
-    
+
         if (!article) {
             return NextResponse.json({ message: 'article not found' }, { status: 404 });
         }
-    
+
         const body = (await request.json()) as UpdateArticleDto;
         const updatedArticle = await prisma.article.update({
             where: { id: parseInt(params.id) },
@@ -54,7 +54,7 @@ export async function PUT(request: NextRequest, { params }: Props) {
                 description: body.description
             }
         });
-    
+
         return NextResponse.json(updatedArticle, { status: 200 });
     } catch (error) {
         return NextResponse.json(
@@ -78,14 +78,14 @@ export async function DELETE(request: NextRequest, { params }: Props) {
         if (!article) {
             return NextResponse.json({ message: 'article not found' }, { status: 404 });
         }
-    
-        await prisma.article.delete({ where: { id: parseInt(params.id) }});
-    
+
+        await prisma.article.delete({ where: { id: parseInt(params.id) } });
+
         return NextResponse.json({ message: 'article deleted' }, { status: 200 });
     } catch (error) {
         return NextResponse.json(
             { message: "internal server error" },
             { status: 500 }
-        ); 
+        );
     }
 }
