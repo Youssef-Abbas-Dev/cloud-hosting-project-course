@@ -3,8 +3,7 @@ import { registerSchema } from '@/utils/validationSchemas';
 import { NextResponse, NextRequest } from 'next/server';
 import prisma from '@/utils/db';
 import bcrypt from 'bcryptjs';
-import { JWTPayload } from '@/utils/types';
-import { generateJWT } from '@/utils/generateToken';
+import {  setCookie } from '@/utils/generateToken';
 
 /**
  *  @method  POST
@@ -44,15 +43,19 @@ export async function POST(request: NextRequest) {
             }
         });
 
-        const jwtPayload: JWTPayload = {
+
+        const cookie = setCookie({
             id: newUser.id,
             username: newUser.username,
             isAdmin: newUser.isAdmin,
-        }
+        });
 
-        const token = generateJWT(jwtPayload);
-
-        return NextResponse.json({ ...newUser, token }, { status: 201 });
+        return NextResponse.json(
+            { ...newUser, message: "Registered & Authenticated" }, 
+            { 
+                status: 201,
+                headers: { "Set-Cookie": cookie }
+            });
 
     } catch (error) {
         return NextResponse.json(
