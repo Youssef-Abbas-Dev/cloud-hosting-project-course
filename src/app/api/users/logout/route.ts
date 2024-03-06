@@ -13,7 +13,7 @@ export function GET(request: NextRequest) {
         return NextResponse.json({ message: 'logout' }, { status: 200 });
     } catch (error) {
         return NextResponse.json(
-            { message: 'internale server error' },
+            { message: 'internal server error' },
             { status: 500 }
         )
     }

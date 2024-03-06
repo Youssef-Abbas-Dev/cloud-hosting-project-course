@@ -3,7 +3,7 @@ import { registerSchema } from '@/utils/validationSchemas';
 import { NextResponse, NextRequest } from 'next/server';
 import prisma from '@/utils/db';
 import bcrypt from 'bcryptjs';
-import {  setCookie } from '@/utils/generateToken';
+import { setCookie } from '@/utils/generateToken';
 
 /**
  *  @method  POST
@@ -51,8 +51,8 @@ export async function POST(request: NextRequest) {
         });
 
         return NextResponse.json(
-            { ...newUser, message: "Registered & Authenticated" }, 
-            { 
+            { ...newUser, message: "Registered & Authenticated" },
+            {
                 status: 201,
                 headers: { "Set-Cookie": cookie }
             });

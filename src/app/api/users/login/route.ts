@@ -3,7 +3,7 @@ import { loginSchema } from '@/utils/validationSchemas';
 import { NextResponse, NextRequest } from 'next/server';
 import prisma from '@/utils/db';
 import bcrypt from 'bcryptjs';
-import {  setCookie } from '@/utils/generateToken';
+import { setCookie } from '@/utils/generateToken';
 
 
 /**
@@ -39,15 +39,15 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const cookie = setCookie({ 
-            id: user.id, 
-            isAdmin: user.isAdmin, 
-            username: user.username 
+        const cookie = setCookie({
+            id: user.id,
+            isAdmin: user.isAdmin,
+            username: user.username
         });
 
         return NextResponse.json(
             { message: 'Authenticated' },
-            { 
+            {
                 status: 200,
                 headers: { "Set-Cookie": cookie }
             }
