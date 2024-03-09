@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { UpdateArticleDto } from '@/utils/dtos';
 import prisma from '@/utils/db';
+import { verifyToken } from '@/utils/verifyToken';
 
 interface Props {
     params: { id: string }
@@ -34,10 +35,18 @@ export async function GET(request: NextRequest, { params }: Props) {
  *  @method  PUT
  *  @route   ~/api/articles/:id
  *  @desc    Update Article
- *  @access  public
+ *  @access  private (only admin can update article)
  */
 export async function PUT(request: NextRequest, { params }: Props) {
     try {
+        const user = verifyToken(request);
+        if (user === null || user.isAdmin === false) {
+            return NextResponse.json(
+                { message: 'only admin, access denied' },
+                { status: 403 }
+            )
+        }
+
         const article = await prisma.article.findUnique({
             where: { id: parseInt(params.id) }
         });
@@ -68,10 +77,18 @@ export async function PUT(request: NextRequest, { params }: Props) {
  *  @method  DELETE
  *  @route   ~/api/articles/:id
  *  @desc    Delete Article
- *  @access  public
+ *  @access  private (only admin can delete article)
  */
 export async function DELETE(request: NextRequest, { params }: Props) {
     try {
+        const user = verifyToken(request);
+        if (user === null || user.isAdmin === false) {
+            return NextResponse.json(
+                { message: 'only admin, access denied' },
+                { status: 403 }
+            )
+        }
+
         const article = await prisma.article.findUnique({
             where: { id: parseInt(params.id) }
         });
