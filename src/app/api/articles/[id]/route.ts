@@ -107,13 +107,21 @@ export async function DELETE(request: NextRequest, { params }: Props) {
         }
 
         const article = await prisma.article.findUnique({
-            where: { id: parseInt(params.id) }
+            where: { id: parseInt(params.id) },
+            include: { comments: true }
         });
         if (!article) {
             return NextResponse.json({ message: 'article not found' }, { status: 404 });
         }
 
+        // deleting the article
         await prisma.article.delete({ where: { id: parseInt(params.id) } });
+
+        // deleting the comments that belong to this article
+        const commentIds: number[] = article?.comments.map(comment => comment.id);
+        await prisma.comment.deleteMany({
+            where: { id: { in: commentIds }}
+        });
 
         return NextResponse.json({ message: 'article deleted' }, { status: 200 });
     } catch (error) {
