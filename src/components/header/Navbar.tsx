@@ -29,7 +29,7 @@ const Navbar = () => {
             >
                 <ul className={styles.navLinks}>
                     <Link onClick={() => setToggle(false)} className={styles.navLink} href="/">Home</Link>
-                    <Link onClick={() => setToggle(false)} className={styles.navLink} href="/articles">Articles</Link>
+                    <Link onClick={() => setToggle(false)} className={styles.navLink} href="/articles?pageNumber=1">Articles</Link>
                     <Link onClick={() => setToggle(false)} className={styles.navLink} href="/about">About</Link>
                     <Link onClick={() => setToggle(false)} className={styles.navLink} href="/admin">Admin Dashboard</Link>
                 </ul>

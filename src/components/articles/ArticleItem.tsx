@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Article } from '@/utils/types';
+import { Article } from '@prisma/client';
 
 interface ArticleItemProps {
   article: Article;
@@ -12,7 +12,7 @@ const ArticleItem = ({ article }: ArticleItemProps) => {
         {article.title}
       </h3>
       <p className="my-2 text-xl text-gray-700 p-1 line-clamp-1">
-        {article.body}
+        {article.description}
       </p>
       <Link className="text-xl bg-purple-700 hover:bg-purple-800 w-full block text-center p-1 text-white rounded-lg" href={`/articles/${article.id}`}>
         Read More
