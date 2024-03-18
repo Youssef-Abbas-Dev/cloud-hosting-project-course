@@ -23,3 +23,14 @@ export async function getArticlesCount(): Promise<number>{
     const { count } = await response.json() as { count:number };
     return  count;
 }
+
+// Get articles based on searchText
+export async function getArticlesBasedOnSearch(searchText: string): Promise<Article[]>{
+  const response = await fetch(`http://localhost:3000/api/articles/search?searchText=${searchText}`);
+  
+  if(!response.ok) {
+    throw new Error("Failed to fetch articles");
+  }
+
+  return response.json();
+}
