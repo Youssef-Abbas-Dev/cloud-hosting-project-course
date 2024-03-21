@@ -56,7 +56,7 @@ const RegisterForm = () => {
              value={password}
              onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="submit" className="text-2xl text-white bg-blue-800 p-2 rounded-lg font-bold">
+            <button disabled={loading} type="submit" className="text-2xl text-white bg-blue-800 p-2 rounded-lg font-bold">
                 {loading ? <ButtonSpinner /> : "Register"}
             </button>
         </form>
