@@ -5,6 +5,7 @@ import { SingleArticle } from "@/utils/types";
 import { cookies } from "next/headers";
 import { verifyTokenForPage } from "@/utils/verifyToken";
 
+
 interface SingleArticlePageProps {
     params: { id: string }
 }
@@ -39,7 +40,7 @@ const SingleArticlePage = async ({ params }: SingleArticlePageProps) => {
                 Comments
             </h4>
             {article.comments.map(comment => (
-                <CommentItem key={comment.id} comment={comment} />
+                <CommentItem key={comment.id} comment={comment} userId={payload?.id} />
             ))}
         </section>
     )
