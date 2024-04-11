@@ -1,4 +1,3 @@
-import Link from 'next/link';
 
 const NotFoundPage = () => {
   return (
@@ -7,9 +6,9 @@ const NotFoundPage = () => {
         <p className='text-gray-500 text-3xl mt-2 mb-5'>
             Page Not Found
         </p>
-        <Link className='text-xl underline text-blue-700' href="/">
+        <a className='text-xl underline text-blue-700' href="/">
             Go to home page
-        </Link>
+        </a>
     </section>
   )
 }

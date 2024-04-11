@@ -7,7 +7,6 @@ import { verifyTokenForPage } from "@/utils/verifyToken";
 import prisma from "@/utils/db";
 import { redirect } from "next/navigation";
 
-
 interface SingleArticlePageProps {
     params: { id: string }
 }
@@ -39,7 +38,7 @@ const SingleArticlePage = async ({ params }: SingleArticlePageProps) => {
     if(!article){
        redirect("/not-found");
     }
-
+   
     return (
         <section className="fix-height container m-auto w-full px-5 pt-8 md:w-3/4">
             <div className="bg-white p-7 rounded-lg mb-7">
