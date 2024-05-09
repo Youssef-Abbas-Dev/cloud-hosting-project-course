@@ -16,7 +16,7 @@ export async function GET(request: NextRequest) {
             articles = await prisma.article.findMany({
                 where: {
                     title: {
-                        startsWith: searchText,
+                        contains: searchText,
                         mode: "insensitive"
                     }
                 }
