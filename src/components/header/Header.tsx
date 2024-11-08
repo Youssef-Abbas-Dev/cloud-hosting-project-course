@@ -15,9 +15,9 @@ const Header = () => {
       <div className={styles.right}>
         {payload ? (
           <>
-            <strong className='text-blue-800 md:text-xl capitalize'>
+            <Link href="/profile" className='text-blue-800 font-bold md:text-xl capitalize'>
               {payload?.username}
-            </strong>
+            </Link>
             <LogoutButton />
           </>
         ) : (

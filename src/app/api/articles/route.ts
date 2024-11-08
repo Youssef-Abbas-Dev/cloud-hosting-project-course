@@ -22,6 +22,7 @@ export async function GET(request: NextRequest) {
       orderBy: { createdAt: 'desc' }
     });
 
+    //return Response.json(articles, { status: 200 })
     return NextResponse.json(articles, { status: 200 });
   } catch (error) {
     return NextResponse.json(
@@ -41,7 +42,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const user = verifyToken(request);
-    if(user === null || user.isAdmin === false) {
+    if (user === null || user.isAdmin === false) {
       return NextResponse.json(
         { message: 'only admin, access denied' },
         { status: 403 }

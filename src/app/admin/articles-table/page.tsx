@@ -1,6 +1,3 @@
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
-import { verifyTokenForPage } from "@/utils/verifyToken";
 import { ARTICLE_PER_PAGE } from "@/utils/constants";
 import { Article } from "@prisma/client";
 import Link from "next/link";
@@ -14,12 +11,6 @@ interface AdminArticlesTableProps {
 }
 
 const AdminArticlesTable = async ({ searchParams: { pageNumber } }: AdminArticlesTableProps) => {
-  const token = cookies().get("jwtToken")?.value;
-  if (!token) redirect("/");
-
-  const payload = verifyTokenForPage(token);
-  if (payload?.isAdmin === false) redirect("/");
-
   const articles: Article[] = await getArticles(pageNumber);
   const count: number = await prisma.article.count();
   const pages = Math.ceil(count / ARTICLE_PER_PAGE);
